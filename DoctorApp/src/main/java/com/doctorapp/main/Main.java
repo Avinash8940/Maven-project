@@ -81,7 +81,7 @@ public class Main {
 				System.out.println(service.getByAvailability(localDateTime));
 			
 			default:
-				System.out.println("what you entered is invalid");
+				System.out.println("what you entered is invalid.....\n please try again.....");
 			}
 			System.out.println("do you want to continue\n1.continue\n 2.exit");
 			int x = sc.nextInt();

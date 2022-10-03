@@ -8,8 +8,7 @@ public enum Specialisation {
 	PHYSICIAN("General Physician");
 	
 	public String type;
-
-	Specialisation(String string) {
-		// TODO Auto-generated constructor stub
+	Specialisation(String type) {
+		
 	}
 }
