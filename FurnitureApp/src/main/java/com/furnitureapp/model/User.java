@@ -1,5 +1,9 @@
 package com.furnitureapp.model;
 
+/**
+ * @author AvinashSankineni
+ *
+ */
 public class User {
 	private String username;
 	private String name;
@@ -7,18 +11,20 @@ public class User {
 	private String email;
 	private String city;
 	private String password;
+	private String type;
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(String username, String name, long mobileNo, String email, String city, String password) {
+	public User(String username, String name, long mobileNo, String email, String city, String type) {
 		super();
 		this.username = username;
 		this.name = name;
 		this.mobileNo = mobileNo;
 		this.email = email;
 		this.city = city;
-		this.password = password;
+		//this.password = password;
+		this.type = type;
 	}
 	public String getUsername() {
 		return username;
@@ -50,16 +56,18 @@ public class User {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getPassword() {
-		return password;
+
+	public String getType() {
+		return type;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setType(String type) {
+		this.type = type;
 	}
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", name=" + name + ", mobileNo=" + mobileNo + ", email=" + email
-				+ ", city=" + city + ", password=" + password + "]";
+				+ ", city=" + city + ", password=" + password + ", type=" + type + "]";
 	}
+	
 	
 }

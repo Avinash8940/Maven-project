@@ -13,7 +13,14 @@ import com.furnitureapp.util.FurnitureMapper;
 import com.furnitureapp.util.IRowMapper;
 import com.furnitureapp.util.Queries;
 
+/**
+ * @author AvinashSankineni
+ *
+ */
 public class FurnitureDaoImpl implements IFurnitureDao {
+	/**
+	 * @param furniture for passing furniture to add into the database
+	 */
 	public void addFurniture(Furniture furniture) {
 		try (Connection connection=DbConnection.openConnection();
 			PreparedStatement statement=connection.prepareStatement(Queries.ADDQUERY);){
@@ -24,12 +31,19 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 			statement.setString(5, furniture.getCategory());
 			statement.setString(6, furniture.getShape());
 			statement.setDouble(7, furniture.getPrice());
+			statement.setInt(8, furniture.getQuantity());
 			statement.execute();
 	} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * @param furnitureId to check the furniture with required Id
+	 * @param price  to update the furniture with required price
+	 * @return 1-if furniture is found
+	 *   	   0-if furniture is not found
+	 */
 	public int updateFurniture(int furnitureId, double price) {
 		int result=0;
 		try (Connection connection=DbConnection.openConnection();
@@ -46,6 +60,11 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 		return result;
 	}
 
+	/**
+	 * @param furnitureId to check the furniture with required Id
+	 * @return 1-if furniture is found
+	 *   	   0-if furniture is not found
+	 */
 	public int deleteFurniture(int furnitureId) {
 		
 		int result=0;
@@ -60,6 +79,11 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 		return result;	
 	}
 
+	/**
+	 * @param furnitureId to check the furniture with required Id
+	 * @return List-if furniture found with required Id
+	 *         EmptyList- if there are no furniture found
+	 */
 	public Furniture findById(int furnitureId) {
 		
 		Furniture furniture=new Furniture();
@@ -76,6 +100,7 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 				furniture.setCategory(resultSet.getString(5));
 				furniture.setShape(resultSet.getString(6));
 				furniture.setPrice(resultSet.getDouble(7));
+				furniture.setQuantity(resultSet.getInt(8));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -94,6 +119,10 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 	}
 	
 
+	/**
+	 * @return List-if furniture found 
+	 *         EmptyList- if there are no furniture found
+	 */
 	public List<Furniture> findAllFurnitures() {
 		List<Furniture> furnitureList=new ArrayList<>();
 		
@@ -119,6 +148,11 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 		}
 		return furnitureList;
 	}
+	/**
+	 * @param category to check the furniture with required category
+	 * @return List-if furniture found with required category
+	 *         EmptyList- if there are no furniture found
+	 */
 	public List<Furniture> findByCategory(String category) {
 		List<Furniture> furnitureList=new ArrayList<Furniture>();
 		ResultSet resultSet=null;
@@ -145,6 +179,11 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 		return furnitureList;
 	}
 
+	/**
+	 * @param type to check the furniture with required type
+	 * @return List-if furniture found with required type
+	 *         EmptyList- if there are no furniture found
+	 */
 	public List<Furniture> findByType(String type) {
 		List<Furniture> furnitureList=new ArrayList<Furniture>();
 		ResultSet resultSet=null;
@@ -172,6 +211,12 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 		return furnitureList;
 	}
 
+	/**
+	 * @param category to check the furniture with required category
+	 * @param type to check the furniture with required type
+	 * @return List-if furniture found with required category and type
+	 *         EmptyList- if there are no furniture found
+	 */
 	public List<Furniture> findByCategoryAndType(String category, String type) {
 		List<Furniture> furnitureList=new ArrayList<Furniture>();
 		ResultSet resultSet=null;
@@ -199,6 +244,12 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 		return furnitureList;
 	}
 
+	/**
+	 * @param furnitureName to check the furniture with required furnitureName
+	 * @param shape to check the furniture with required shape
+	 * @return List-if furniture found with required furnitureName and shape
+	 *         EmptyList- if there are no furniture found
+	 */
 	public List<Furniture> findByNameAndShape(String furnitureName, String shape) {
 		List<Furniture> furnitureList=new ArrayList<Furniture>();
 		ResultSet resultSet=null;
@@ -226,6 +277,12 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 		return furnitureList;
 	}
 
+	/**
+	 * @param furnitureName to check the furniture with required furnitureName
+	 * @param material to check the furniture with required material
+	 * @return List-if furniture found with required furnitureName and material
+	 *         EmptyList- if there are no furniture found
+	 */
 	public List<Furniture> findByNameAndMaterial(String furnitureName, String material) {
 		List<Furniture> furnitureList=new ArrayList<Furniture>();
 		ResultSet resultSet=null;
@@ -253,6 +310,12 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 		return furnitureList;
 	}
 
+	/**
+	 * @param furnitureName to check the furniture with required furnitureName
+	 * @param price to check the furniture with required price
+	 * @return List-if furniture found with required furnitureName and price
+	 *         EmptyList- if there are no furniture found
+	 */
 	public List<Furniture> findByNameAndPrice(String furnitureName, double price) {
 		List<Furniture> furnitureList=new ArrayList<Furniture>();
 		ResultSet resultSet=null;
@@ -280,6 +343,12 @@ public class FurnitureDaoImpl implements IFurnitureDao {
 		return furnitureList;
 	}
 
+	/**
+	 * @param furnitureName to check the furniture with required furnitureName
+	 * @param category to check the furniture with required category
+	 * @return List-if furniture found with required furnitureName and category
+	 *         EmptyList- if there are no furniture found
+	 */
 	public List<Furniture> findByNameAndCategory(String furnitureName, String category) {
 		List<Furniture> furnitureList=new ArrayList<Furniture>();
 		ResultSet resultSet=null;

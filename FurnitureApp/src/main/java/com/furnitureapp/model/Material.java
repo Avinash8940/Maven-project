@@ -1,5 +1,9 @@
 package com.furnitureapp.model;
 
+/**
+ * @author AvinashSankineni
+ *
+ */
 public enum Material {
 	STEEL("Steel"),
 	IRON("Iron"),

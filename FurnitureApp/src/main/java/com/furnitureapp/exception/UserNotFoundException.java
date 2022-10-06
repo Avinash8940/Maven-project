@@ -1,5 +1,9 @@
 package com.furnitureapp.exception;
 
+/**
+ * @author AvinashSankineni
+ *
+ */
 public class UserNotFoundException extends RuntimeException {
 
 	/**

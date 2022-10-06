@@ -1,5 +1,9 @@
 package com.furnitureapp.model;
 
+/**
+ * @author AvinashSankineni
+ *
+ */
 public enum Type {
 	TWOSOFA("Flex Two Seater Sofas"),
 	FOURSOFA("Flex Four-seater Sofas"),

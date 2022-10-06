@@ -12,6 +12,10 @@ import com.doctorapp.model.Doctor;
 import com.doctorapp.util.DbConnection;
 import com.doctorapp.util.Queries;
 
+/**
+ * @author AvinashSankineni
+ *
+ */
 public class DoctorDaoImpl implements IDoctorDao {
 	DbConnection database = new DbConnection();
 	List<Doctor> doctorList=new ArrayList<>();
@@ -57,6 +61,9 @@ public class DoctorDaoImpl implements IDoctorDao {
 	}
 
 
+	/**
+	 *
+	 */
 	@Override
 	public void addDoctor(Doctor doctor) {
 		String sql = Queries.INSERTQUERY;
@@ -94,6 +101,11 @@ public class DoctorDaoImpl implements IDoctorDao {
 
 	}
 
+	/**
+	 * @param doctorId
+	 * @param fees
+	 * @return
+	 */
 	@Override
 	public int updateDoctor(int doctorId, double fees) {
 		connection = database.getConnection();

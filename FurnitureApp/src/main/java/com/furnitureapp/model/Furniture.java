@@ -1,5 +1,9 @@
 package com.furnitureapp.model;
 
+/**
+ * @author AvinashSankineni
+ *
+ */
 public class Furniture {
 	private Integer furnitureId;
 	private String furnitureName;
@@ -8,12 +12,13 @@ public class Furniture {
 	private String category;
 	private String shape;
 	private double price;
+	private int quantity;
 	public Furniture() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Furniture(Integer furnitureId, String furnitureName, String material, String type, String category,
-			String shape, double price) {
+			String shape, double price, int quantity) {
 		super();
 		this.furnitureId = furnitureId;
 		this.furnitureName = furnitureName;
@@ -22,6 +27,7 @@ public class Furniture {
 		this.category = category;
 		this.shape = shape;
 		this.price = price;
+		this.quantity = quantity;
 	}
 	public Integer getFurnitureId() {
 		return furnitureId;
@@ -65,12 +71,18 @@ public class Furniture {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	@Override
 	public String toString() {
 		return "Furniture [furnitureId=" + furnitureId + ", furnitureName=" + furnitureName + ", material=" + material
-				+ ", type=" + type + ", category=" + category + ", shape=" + shape + ", price=" + price + "]";
+				+ ", type=" + type + ", category=" + category + ", shape=" + shape + ", price=" + price + ", quantity="
+				+ quantity + "]";
 	}
-	
 	
 	
 }

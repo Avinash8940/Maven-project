@@ -2,6 +2,10 @@ package com.furnitureapp.util;
 
 import java.util.Random;
 
+/**
+ * @author AvinashSankineni
+ *
+ */
 public class PasswordGenerator {
 	 public static String generatePassword (int length) {
 	      String capitalCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

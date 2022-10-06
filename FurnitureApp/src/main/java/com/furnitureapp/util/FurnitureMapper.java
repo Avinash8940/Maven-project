@@ -7,8 +7,17 @@ import java.util.List;
 
 import com.furnitureapp.model.Furniture;
 
+/**
+ * @author AvinashSankineni
+ *
+ */
 public class FurnitureMapper implements IRowMapper {
 
+	/**
+	 * @param resultSet getting the resultSet values into List 
+	 * @return furnitureList
+	 * @throws SQLException throwing SQLException
+	 */
 	@Override
 	public List<Furniture> mapRow(ResultSet resultSet) throws SQLException {
 		List<Furniture> furnitureList=new ArrayList<>();
@@ -21,6 +30,7 @@ public class FurnitureMapper implements IRowMapper {
 			furniture.setCategory(resultSet.getString(5));
 			furniture.setShape(resultSet.getString(6));
 			furniture.setPrice(resultSet.getDouble(7));
+			furniture.setQuantity(resultSet.getInt(8));
 			furnitureList.add(furniture);
 		}
 		return furnitureList;

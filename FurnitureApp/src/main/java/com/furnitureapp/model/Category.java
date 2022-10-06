@@ -1,5 +1,9 @@
 package com.furnitureapp.model;
 
+/**
+ * @author AvinashSankineni
+ *
+ */
 public enum Category {
 	STUDYROOM("Study Room"),
 	HALL("Hall"),
