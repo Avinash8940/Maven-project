@@ -129,7 +129,7 @@ public class FurnitureServiceImpl implements IFurnitureService {
 	 * @param shape to get the furniture with required shape
 	 * @return List-if furniture found with required furnitureName and shape
 	 *         EmptyList- if there are no furniture found
-	 * @throws FurnitureNotFoundException
+	 * @throws FurnitureNotFoundException when furniture is not found
 	 */
 	public List<Furniture> getByNameAndShape(String furnitureName, String shape) throws FurnitureNotFoundException {
 		List<Furniture>furnitureList=serviceDao.findByNameAndShape(furnitureName, shape);

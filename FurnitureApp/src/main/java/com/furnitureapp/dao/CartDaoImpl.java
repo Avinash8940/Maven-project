@@ -52,7 +52,8 @@ public class CartDaoImpl implements ICartDao {
 	}
 
 	/**
-	 * @param funiture  passing furniture to add cart database
+	 * @param furniture  passing furniture to add cart database
+	 * @param user for passing user
 	 */
 	@Override
 	public void addCart(Furniture furniture,User user) {
