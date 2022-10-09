@@ -24,4 +24,5 @@ public class Queries {
 	public static final String GETAVAILABILITYQUERY="select * from furnituree where furnitureId=? and quantity>=?";
 	public static final String ADDCARTQUERY="insert into carts(furnitureId,furnitureName,price,quantity,username,bill) values(?,?,?,?,?,?)";
 	public static final String DELETECARTQUERY="delete from carts where furnitureId=? and username=?";
+	public static final String PURCHASEQUERY="select * from carts where username=?";
 }

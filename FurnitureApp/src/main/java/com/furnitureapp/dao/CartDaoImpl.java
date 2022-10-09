@@ -7,7 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.furnitureapp.model.Cart;
 import com.furnitureapp.model.Furniture;
 import com.furnitureapp.model.User;
 import com.furnitureapp.util.DbConnection;
@@ -92,6 +95,37 @@ public class CartDaoImpl implements ICartDao {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	/**
+	 * @param username is used to get the furniture in the cart
+	 */
+	@Override
+	public List<Cart> purchase(String username) {
+		// TODO Auto-generated method stub
+		//Furniture furniture=new Furniture();
+		//User user=new User();
+		List<Cart> cartList=new ArrayList<>();
+		try(Connection connection=DbConnection.openConnection();
+				PreparedStatement statement=connection.prepareStatement(Queries.PURCHASEQUERY);){
+			statement.setString(1, username);
+			ResultSet resultSet=statement.executeQuery();
+			while(resultSet.next()) {
+				Cart cart=new Cart();
+				cart.setProductId(resultSet.getInt(1));
+				cart.setProductName(resultSet.getString(2));
+				cart.setPrice(resultSet.getDouble(3));
+				cart.setQuantity(resultSet.getInt(4));
+				cart.setUsername(resultSet.getString(5));
+				cart.setBill(resultSet.getDouble(6));
+				cartList.add(cart);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cartList;
+		
 	}
 
 }

@@ -134,7 +134,7 @@ public class Main {
 			do {
 				System.out.println("welcome user");
 				System.out.println(
-						"1.Get Furniture by id\n2.Get All Furnitures\n3.Get Furniture by category\n4.Get Furniture by type\n5.Get Furniture By Category And Type\n6.Get Furniture By Name And Shape\n7.Get Furniture By Name And Material\n8.Get Furniture By Name And Price\n9.Get Furniture By Name And Category\n10.Change Password\n11.Add to cart\n12.delete cart by furnitureId");
+						"1.Get Furniture by id\n2.Get All Furnitures\n3.Get Furniture by category\n4.Get Furniture by type\n5.Get Furniture By Category And Type\n6.Get Furniture By Name And Shape\n7.Get Furniture By Name And Material\n8.Get Furniture By Name And Price\n9.Get Furniture By Name And Category\n10.Change Password\n11.Add to cart\n12.delete cart by furnitureId\n 3.Purchase Cart by username");
 				int choice = sc.nextInt();
 				sc.nextLine();
 				switch (choice) {
@@ -238,6 +238,11 @@ public class Main {
 					System.out.println("Enter username");
 					username=sc.next();
 					cart.deleteCart(furnitureId,username);
+					break;
+				case 13:
+					System.out.println("Enter username");
+					username=sc.nextLine();
+					cart.purchase(username).forEach(System.out::println);
 					break;
 				default:
 					System.out.println("YOU HAVE ENTERD WRONG ONE....\n CHOOSE CORRECT ONE");

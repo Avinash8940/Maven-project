@@ -3,6 +3,9 @@
  */
 package com.furnitureapp.dao;
 
+import java.util.List;
+
+import com.furnitureapp.model.Cart;
 import com.furnitureapp.model.Furniture;
 import com.furnitureapp.model.User;
 
@@ -29,4 +32,8 @@ public interface ICartDao {
 	 * 			0-if cart not found
 	 */
 	int deleteCart(int furnitureId,String username);
+	/**
+	 * @param username is uesd to get the cart item in the cart
+	 */
+	List<Cart> purchase(String username);
 }

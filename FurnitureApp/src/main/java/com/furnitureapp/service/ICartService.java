@@ -3,6 +3,9 @@
  */
 package com.furnitureapp.service;
 
+import java.util.List;
+
+import com.furnitureapp.model.Cart;
 import com.furnitureapp.model.Furniture;
 import com.furnitureapp.model.User;
 
@@ -29,6 +32,10 @@ public interface ICartService {
 	 * 			0-if cart not found
 	 */
 	int deleteCart(int furnitureId,String username);
+	/**
+	 * @param username is used to get the item in the cart
+	 */
+	List<Cart> purchase(String username);
 	
 	
 }

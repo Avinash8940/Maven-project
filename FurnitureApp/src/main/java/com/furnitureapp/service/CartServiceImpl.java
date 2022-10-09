@@ -3,9 +3,13 @@
  */
 package com.furnitureapp.service;
 
+import java.util.List;
+
 import com.furnitureapp.dao.CartDaoImpl;
 import com.furnitureapp.dao.ICartDao;
+import com.furnitureapp.exception.FurnitureNotFoundException;
 import com.furnitureapp.exception.UserNotFoundException;
+import com.furnitureapp.model.Cart;
 import com.furnitureapp.model.Furniture;
 import com.furnitureapp.model.User;
 
@@ -55,6 +59,19 @@ public class CartServiceImpl implements ICartService {
 		if(check==0)
 			throw new UserNotFoundException("empty cart");
 		return check;
+	}
+
+	/**
+	 * @param username is used to get the furniture in the cart
+	 */
+	@Override
+	public List<Cart> purchase(String username) {
+		List<Cart> cartList=cartService.purchase(username);
+		if(cartList.isEmpty()) {
+			throw new FurnitureNotFoundException("cart not found");
+		}
+		else 
+			return cartList;
 	}
 
 }
